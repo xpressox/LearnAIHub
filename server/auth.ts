@@ -23,10 +23,39 @@ async function hashPassword(password: string) {
 }
 
 async function comparePasswords(supplied: string, stored: string) {
+  // Added safety check for missing or malformed stored password
+  if (!stored || !stored.includes('.')) {
+    return false;
+  }
   const [hashed, salt] = stored.split(".");
   const hashedBuf = Buffer.from(hashed, "hex");
   const suppliedBuf = (await scryptAsync(supplied, salt, 64)) as Buffer;
   return timingSafeEqual(hashedBuf, suppliedBuf);
+}
+
+// Create default admin user if it doesn't exist
+export async function ensureAdminUser() {
+  try {
+    const adminUser = await storage.getUserByUsername('admin');
+    if (!adminUser) {
+      console.log('Creating default admin user...');
+      await storage.createUser({
+        username: 'admin',
+        email: 'admin@learnhub.com',
+        password: await hashPassword('admin123'),
+        firstName: 'Admin',
+        lastName: 'User',
+        role: UserRole.ADMIN,
+        bio: 'Platform administrator',
+        profilePicUrl: 'https://ui-avatars.com/api/?name=Admin+User&background=3B82F6&color=fff'
+      });
+      console.log('Default admin user created successfully.');
+    } else {
+      console.log('Admin user already exists.');
+    }
+  } catch (error) {
+    console.error('Error ensuring admin user:', error);
+  }
 }
 
 // Validation schemas
@@ -57,6 +86,9 @@ export function setupAuth(app: Express) {
   app.use(session(sessionSettings));
   app.use(passport.initialize());
   app.use(passport.session());
+  
+  // Ensure admin user exists
+  ensureAdminUser();
 
   passport.use(
     new LocalStrategy(async (username, password, done) => {
@@ -141,7 +173,7 @@ export function setupAuth(app: Express) {
 
   // Login endpoint
   app.post("/api/login", (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
+    passport.authenticate("local", (err: Error | null, user: Express.User | false, info: { message: string } | undefined) => {
       if (err) return next(err);
       if (!user) {
         return res.status(401).json({ message: "Invalid credentials" });

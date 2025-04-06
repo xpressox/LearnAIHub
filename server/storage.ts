@@ -5,10 +5,14 @@ import {
   type Progress, type InsertProgress, type Review, type InsertReview,
   UserRole, CourseStatus
 } from "@shared/schema";
+import { db, pool } from "./db";
+import { eq, and, desc } from "drizzle-orm";
 import session from "express-session";
 import createMemoryStore from "memorystore";
+import connectPg from "connect-pg-simple";
 
 const MemoryStore = createMemoryStore(session);
+const PostgresSessionStore = connectPg(session);
 
 // Interface for storage operations
 export interface IStorage {
@@ -53,7 +57,7 @@ export interface IStorage {
   getReviewsByCourse(courseId: number): Promise<Review[]>;
   
   // Session store
-  sessionStore: session.SessionStore;
+  sessionStore: session.Store; // Use session.Store interface
 }
 
 export class MemStorage implements IStorage {
@@ -64,7 +68,7 @@ export class MemStorage implements IStorage {
   private progress: Map<number, Progress>;
   private reviews: Map<number, Review>;
   
-  sessionStore: session.SessionStore;
+  sessionStore: session.Store;
   
   private userId: number = 1;
   private courseId: number = 1;
@@ -316,4 +320,213 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// DatabaseStorage implementation
+export class DatabaseStorage implements IStorage {
+  sessionStore: session.Store;
+
+  constructor() {
+    this.sessionStore = new PostgresSessionStore({
+      pool, 
+      createTableIfMissing: true
+    });
+  }
+
+  // Users
+  async getUser(id: number): Promise<User | undefined> {
+    const result = await db.select().from(users).where(eq(users.id, id));
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const result = await db.select().from(users).where(eq(users.username, username));
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const result = await db.select().from(users).where(eq(users.email, email));
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async createUser(userData: InsertUser): Promise<User> {
+    const result = await db.insert(users).values(userData).returning();
+    return result[0];
+  }
+
+  async updateUser(id: number, userData: Partial<User>): Promise<User | undefined> {
+    const result = await db
+      .update(users)
+      .set(userData)
+      .where(eq(users.id, id))
+      .returning();
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return await db.select().from(users);
+  }
+
+  async getUsersByRole(role: string): Promise<User[]> {
+    return await db.select().from(users).where(eq(users.role, role as any));
+  }
+
+  // Courses
+  async createCourse(courseData: InsertCourse): Promise<Course> {
+    const result = await db.insert(courses).values(courseData).returning();
+    return result[0];
+  }
+
+  async getCourse(id: number): Promise<Course | undefined> {
+    const result = await db.select().from(courses).where(eq(courses.id, id));
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async getCoursesByTeacher(teacherId: number): Promise<Course[]> {
+    return await db
+      .select()
+      .from(courses)
+      .where(eq(courses.teacherId, teacherId))
+      .orderBy(desc(courses.createdAt));
+  }
+
+  async getAllCourses(status?: string): Promise<Course[]> {
+    if (status) {
+      return await db
+        .select()
+        .from(courses)
+        .where(eq(courses.status, status as any))
+        .orderBy(desc(courses.createdAt));
+    }
+    return await db.select().from(courses).orderBy(desc(courses.createdAt));
+  }
+
+  async updateCourse(id: number, courseData: Partial<Course>): Promise<Course | undefined> {
+    const result = await db
+      .update(courses)
+      .set(courseData)
+      .where(eq(courses.id, id))
+      .returning();
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async deleteCourse(id: number): Promise<boolean> {
+    await db.delete(courses).where(eq(courses.id, id));
+    return true;
+  }
+
+  // Lessons
+  async createLesson(lessonData: InsertLesson): Promise<Lesson> {
+    const result = await db.insert(lessons).values(lessonData).returning();
+    return result[0];
+  }
+
+  async getLessonsByCourse(courseId: number): Promise<Lesson[]> {
+    return await db
+      .select()
+      .from(lessons)
+      .where(eq(lessons.courseId, courseId))
+      .orderBy(lessons.order);
+  }
+
+  async getLesson(id: number): Promise<Lesson | undefined> {
+    const result = await db.select().from(lessons).where(eq(lessons.id, id));
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async updateLesson(id: number, lessonData: Partial<Lesson>): Promise<Lesson | undefined> {
+    const result = await db
+      .update(lessons)
+      .set(lessonData)
+      .where(eq(lessons.id, id))
+      .returning();
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async deleteLesson(id: number): Promise<boolean> {
+    await db.delete(lessons).where(eq(lessons.id, id));
+    return true;
+  }
+
+  // Enrollments
+  async createEnrollment(enrollmentData: InsertEnrollment): Promise<Enrollment> {
+    const result = await db.insert(enrollments).values(enrollmentData).returning();
+    return result[0];
+  }
+
+  async getEnrollment(studentId: number, courseId: number): Promise<Enrollment | undefined> {
+    const result = await db
+      .select()
+      .from(enrollments)
+      .where(and(
+        eq(enrollments.studentId, studentId),
+        eq(enrollments.courseId, courseId)
+      ));
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  async getEnrollmentsByStudent(studentId: number): Promise<Enrollment[]> {
+    return await db
+      .select()
+      .from(enrollments)
+      .where(eq(enrollments.studentId, studentId));
+  }
+
+  async getEnrollmentsByCourse(courseId: number): Promise<Enrollment[]> {
+    return await db
+      .select()
+      .from(enrollments)
+      .where(eq(enrollments.courseId, courseId));
+  }
+
+  async updateEnrollment(id: number, enrollmentData: Partial<Enrollment>): Promise<Enrollment | undefined> {
+    const result = await db
+      .update(enrollments)
+      .set(enrollmentData)
+      .where(eq(enrollments.id, id))
+      .returning();
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  // Progress tracking
+  async createProgress(progressData: InsertProgress): Promise<Progress> {
+    // Explicitly referring to the imported progress
+    const progressTable = progress;
+    const result = await db.insert(progressTable).values(progressData).returning();
+    return result[0];
+  }
+
+  async getProgressByStudent(studentId: number): Promise<Progress[]> {
+    // Explicitly referring to the imported progress
+    const progressTable = progress;
+    return await db
+      .select()
+      .from(progressTable)
+      .where(eq(progressTable.studentId, studentId));
+  }
+
+  async updateProgress(id: number, progressData: Partial<Progress>): Promise<Progress | undefined> {
+    // Explicitly referring to the imported progress
+    const progressTable = progress;
+    const result = await db
+      .update(progressTable)
+      .set(progressData)
+      .where(eq(progressTable.id, id))
+      .returning();
+    return result.length > 0 ? result[0] : undefined;
+  }
+
+  // Reviews
+  async createReview(reviewData: InsertReview): Promise<Review> {
+    const result = await db.insert(reviews).values(reviewData).returning();
+    return result[0];
+  }
+
+  async getReviewsByCourse(courseId: number): Promise<Review[]> {
+    return await db
+      .select()
+      .from(reviews)
+      .where(eq(reviews.courseId, courseId));
+  }
+}
+
+// Export an instance of DatabaseStorage
+export const storage = new DatabaseStorage();

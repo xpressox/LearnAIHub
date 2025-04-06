@@ -1,5 +1,6 @@
-import { pgTable, text, serial, integer, boolean, timestamp, doublePrecision } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, doublePrecision, primaryKey } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
+import { relations } from "drizzle-orm";
 import { z } from "zod";
 
 // Define user roles
@@ -165,6 +166,73 @@ export const insertReviewSchema = createInsertSchema(reviews).pick({
   rating: true,
   comment: true,
 });
+
+// Define relations
+export const usersRelations = relations(users, ({ many }) => ({
+  teacherCourses: many(courses, { relationName: "teacher_courses" }),
+  enrollments: many(enrollments, { relationName: "student_enrollments" }),
+  progress: many(progress, { relationName: "student_progress" }),
+  reviews: many(reviews, { relationName: "student_reviews" }),
+}));
+
+export const coursesRelations = relations(courses, ({ one, many }) => ({
+  teacher: one(users, {
+    fields: [courses.teacherId],
+    references: [users.id],
+    relationName: "teacher_courses"
+  }),
+  lessons: many(lessons, { relationName: "course_lessons" }),
+  enrollments: many(enrollments, { relationName: "course_enrollments" }),
+  reviews: many(reviews, { relationName: "course_reviews" }),
+}));
+
+export const lessonsRelations = relations(lessons, ({ one, many }) => ({
+  course: one(courses, {
+    fields: [lessons.courseId],
+    references: [courses.id],
+    relationName: "course_lessons"
+  }),
+  progress: many(progress, { relationName: "lesson_progress" }),
+}));
+
+export const enrollmentsRelations = relations(enrollments, ({ one }) => ({
+  student: one(users, {
+    fields: [enrollments.studentId],
+    references: [users.id],
+    relationName: "student_enrollments"
+  }),
+  course: one(courses, {
+    fields: [enrollments.courseId],
+    references: [courses.id],
+    relationName: "course_enrollments"
+  }),
+}));
+
+export const progressRelations = relations(progress, ({ one }) => ({
+  student: one(users, {
+    fields: [progress.studentId],
+    references: [users.id],
+    relationName: "student_progress"
+  }),
+  lesson: one(lessons, {
+    fields: [progress.lessonId],
+    references: [lessons.id],
+    relationName: "lesson_progress"
+  }),
+}));
+
+export const reviewsRelations = relations(reviews, ({ one }) => ({
+  student: one(users, {
+    fields: [reviews.studentId],
+    references: [users.id],
+    relationName: "student_reviews"
+  }),
+  course: one(courses, {
+    fields: [reviews.courseId],
+    references: [courses.id],
+    relationName: "course_reviews"
+  }),
+}));
 
 // Export types
 export type InsertUser = z.infer<typeof insertUserSchema>;
