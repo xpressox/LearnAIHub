@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Header from "@/components/layout/header";
@@ -17,7 +15,12 @@ import { UserRole } from "@shared/schema";
 function App() {
   const { user } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeRole, setActiveRole] = useState(UserRole.STUDENT);
+  const [activeRole, setActiveRoleState] = useState<string>(UserRole.STUDENT);
+
+  // Create a wrapper function for setActiveRole that accepts string
+  const setActiveRole = (role: string) => {
+    setActiveRoleState(role);
+  };
 
   // Set the active role based on the user's role
   useEffect(() => {
@@ -31,7 +34,7 @@ function App() {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <div className="flex flex-col min-h-screen bg-gray-50">
         {user && (
           <Header 
@@ -63,7 +66,7 @@ function App() {
         </div>
       </div>
       <Toaster />
-    </QueryClientProvider>
+    </>
   );
 }
 
