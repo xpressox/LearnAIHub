@@ -13,8 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { UserRole } from '@shared/schema';
 import useMobile from '@/hooks/use-mobile';
-// Import logo directly
-import dentalIconSrc from '../../../public/dental-icon.svg';
+// Import logo from assets directory
+import dentalIconSrc from '@/assets/dental-icon.svg';
 
 interface HeaderProps {
   onMenuClick: () => void;
