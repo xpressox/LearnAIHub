@@ -50,7 +50,7 @@ export default function Header({ onMenuClick, activeRole, setActiveRole }: Heade
           <div className="flex items-center">
             <div className="flex items-center">
               <span className="text-primary font-bold text-2xl">Dental<span className="text-emerald-500">LearnHub</span></span>
-              <img src={dentalIconSrc} alt="Dental Icon" className="h-6 w-6 ml-2" />
+              <img src="/src/assets/dental-icon.svg" alt="Dental Icon" className="h-6 w-6 ml-2" />
             </div>
           </div>
         </div>
