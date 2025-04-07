@@ -35,7 +35,7 @@ export default function AdminSettingsPage() {
   });
 
   const [integrationSettings, setIntegrationSettings] = useState({
-    openaiApiKey: process.env.OPENAI_API_KEY || "",
+    openaiApiKey: import.meta.env.VITE_OPENAI_API_KEY || "",
     stripePublicKey: "",
     stripeSecretKey: "",
   });
