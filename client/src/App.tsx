@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation, useRoute } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Header from "@/components/layout/header";
@@ -12,6 +12,7 @@ import TeacherDashboard from "@/pages/teacher-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 import SettingsPage from "@/pages/settings-page";
 import AdminSettingsPage from "@/pages/admin-settings";
+import LandingPage from "@/pages/landing-page";
 import { UserRole } from "@shared/schema";
 
 function App() {
@@ -34,6 +35,21 @@ function App() {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  // Check if we're on the auth page to prevent redirect loops
+  const [, params] = useRoute('/auth');
+  const isAuthPage = params !== null;
+  const [location] = useLocation();
+
+  // If user is not logged in and not on auth page, show landing page
+  if (!user && !isAuthPage && location === '/') {
+    return (
+      <>
+        <LandingPage />
+        <Toaster />
+      </>
+    );
+  }
 
   return (
     <>
