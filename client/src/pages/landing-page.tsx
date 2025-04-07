@@ -38,10 +38,10 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Transform</span> Your Learning Journey
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Transform</span> Your Dental Education
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Join our global community of learners and unlock your potential with expert-led courses, personalized learning paths, and AI-powered study tools.
+                Join India's premier dental e-learning platform with courses designed specifically for BDS and MDS students. Access expert-led dental courses, clinical case studies, and AI-powered study tools.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button 
@@ -113,9 +113,9 @@ export default function LandingPage() {
       <section className="py-20 bg-gradient-to-b from-emerald-50/5 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Learn with LearnHub?</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose DentalLearnHub?</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our platform combines cutting-edge technology with expert-led instruction to provide you with the best learning experience.
+              India's premier dental e-learning platform combines cutting-edge technology with expert-led instruction from top dental professionals to enhance your dental education.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -198,21 +198,21 @@ export default function LandingPage() {
       <section id="courses" className="py-20 bg-gradient-to-b from-background to-emerald-50/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Explore Our Course Categories</h2>
+            <h2 className="text-3xl font-bold mb-4">Explore Our Dental Course Categories</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover courses in various fields, from technology and business to arts and personal development.
+              Discover specialized dental courses covering clinical skills, dental sciences, practice management, and continuing dental education for BDS and MDS students in India.
             </p>
           </div>
           
-          <Tabs defaultValue="technology" className="w-full">
+          <Tabs defaultValue="clinical" className="w-full">
             <TabsList className="grid grid-cols-2 sm:grid-cols-4 w-full mb-8">
-              <TabsTrigger value="technology">Technology</TabsTrigger>
-              <TabsTrigger value="business">Business</TabsTrigger>
-              <TabsTrigger value="design">Design</TabsTrigger>
-              <TabsTrigger value="personal">Personal Growth</TabsTrigger>
+              <TabsTrigger value="clinical">Clinical Skills</TabsTrigger>
+              <TabsTrigger value="sciences">Dental Sciences</TabsTrigger>
+              <TabsTrigger value="management">Practice Management</TabsTrigger>
+              <TabsTrigger value="continuing">Continuing Education</TabsTrigger>
             </TabsList>
             
-            {['technology', 'business', 'design', 'personal'].map((category) => (
+            {['clinical', 'sciences', 'management', 'continuing'].map((category) => (
               <TabsContent key={category} value={category} className="space-y-4">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[1, 2, 3, 4, 5, 6].map((num) => (
@@ -233,28 +233,28 @@ export default function LandingPage() {
                       <div className="p-4">
                         <div className="flex justify-between items-start mb-2">
                           <div className="text-sm font-medium px-2 py-1 rounded-full bg-primary/10 text-primary">
-                            {category === 'technology' && 'Programming'}
-                            {category === 'business' && 'Marketing'}
-                            {category === 'design' && 'UI/UX Design'}
-                            {category === 'personal' && 'Productivity'}
+                            {category === 'clinical' && 'Practical Skills'}
+                            {category === 'sciences' && 'Dental Sciences'}
+                            {category === 'management' && 'Management'}
+                            {category === 'continuing' && 'CE Credits'}
                           </div>
                           <div className="text-sm font-bold">
-                            {num % 2 === 0 ? 'Free' : '$49.99'}
+                            {num % 2 === 0 ? 'Free' : '₹4,999'}
                           </div>
                         </div>
                         <h3 className="font-semibold text-lg mb-1 line-clamp-1">
-                          {category === 'technology' && 'The Complete Web Development Bootcamp'}
-                          {category === 'business' && 'Digital Marketing Fundamentals'}
-                          {category === 'design' && 'Mastering UI/UX Design Principles'}
-                          {category === 'personal' && 'Building Productive Habits'}
+                          {category === 'clinical' && 'Advanced Dental Implant Techniques'}
+                          {category === 'sciences' && 'Oral Pathology Masterclass'}
+                          {category === 'management' && 'Dental Practice Management'}
+                          {category === 'continuing' && 'Latest Updates in Endodontics'}
                           {' '}
                           {num}
                         </h3>
                         <div className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                          {category === 'technology' && 'Learn HTML, CSS, JavaScript, React, Node and more to become a full-stack web developer.'}
-                          {category === 'business' && 'Master the fundamentals of digital marketing, SEO, social media, and analytics.'}
-                          {category === 'design' && 'Learn the principles of user interface and user experience design for digital products.'}
-                          {category === 'personal' && 'Develop habits and systems that increase your productivity and well-being.'}
+                          {category === 'clinical' && 'Master the latest dental implant techniques with hands-on training and live case studies from top Indian specialists.'}
+                          {category === 'sciences' && 'Comprehensive study of oral pathology with focus on conditions prevalent in the Indian subcontinent.'}
+                          {category === 'management' && 'Learn to run a successful dental practice in India, covering patient acquisition, staff management, and regulatory compliance.'}
+                          {category === 'continuing' && 'Stay updated with the latest advancements in endodontic treatments and earn required CE credits from DCI.'}
                         </div>
                         <div className="flex items-center text-sm">
                           <PlayCircle className="h-4 w-4 text-muted-foreground mr-1" />
@@ -282,31 +282,31 @@ export default function LandingPage() {
       <section className="py-20 bg-gradient-to-t from-emerald-50/10 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">What Our Students Say</h2>
+            <h2 className="text-3xl font-bold mb-4">What Our Dental Students Say</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of satisfied learners who have transformed their careers through our platform.
+              Join thousands of dental professionals who have enhanced their skills and advanced their careers with DentalLearnHub.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                role: "Software Developer",
+                name: "Dr. Priya Sharma",
+                role: "BDS, Private Practice",
                 image: "https://randomuser.me/api/portraits/women/32.jpg",
-                quote: "The AI-assisted learning on LearnHub helped me master React in just 6 weeks. I've now landed my dream job as a frontend developer!"
+                quote: "The implantology course on DentalLearnHub helped me master advanced techniques that I now use daily in my practice. The AI-assisted learning made complex concepts easy to understand."
               },
               {
-                name: "Michael Chen",
-                role: "Marketing Specialist",
+                name: "Dr. Rajesh Kumar",
+                role: "MDS Prosthodontics, Dental College Professor",
                 image: "https://randomuser.me/api/portraits/men/22.jpg",
-                quote: "The digital marketing courses were comprehensive and practical. I applied what I learned immediately in my job and saw real results."
+                quote: "As a faculty member, I've recommended DentalLearnHub to all my students. The practice management courses helped me streamline operations at our university clinic."
               },
               {
-                name: "Aisha Patel",
-                role: "UX Designer",
+                name: "Dr. Ananya Mehta",
+                role: "BDS, Dental Surgery Resident",
                 image: "https://randomuser.me/api/portraits/women/45.jpg",
-                quote: "LearnHub's design courses are exceptional. The instructor feedback was invaluable, and I built a portfolio that impressed employers."
+                quote: "The continuing education courses on DentalLearnHub are exceptional. I was able to earn all my required CE credits through their DCI-approved courses while preparing for my MDS entrance exams."
               }
             ].map((testimonial, i) => (
               <Card key={i} className="relative">
@@ -341,9 +341,9 @@ export default function LandingPage() {
       <section className="py-20 bg-gradient-to-r from-primary/10 to-emerald-500/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Start Your Learning Journey?</h2>
+            <h2 className="text-3xl font-bold mb-4">Ready to Elevate Your Dental Practice?</h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of students who are already transforming their careers with LearnHub.
+              Join thousands of dental professionals across India who are advancing their skills and careers with DentalLearnHub.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
@@ -370,9 +370,9 @@ export default function LandingPage() {
       <section id="newsletter" className="py-20 bg-gradient-to-r from-primary/5 to-emerald-500/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <h2 className="text-2xl font-bold mb-4">Stay Updated on Dental Advancements</h2>
             <p className="text-muted-foreground mb-6">
-              Get updates on new courses, learning resources, and special offers directly to your inbox.
+              Subscribe to receive updates on new dental courses, clinical techniques, research findings, and special offers directly to your inbox.
             </p>
             <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
               <Input
@@ -442,7 +442,7 @@ export default function LandingPage() {
                 <img src="/dental-icon.svg" alt="Dental Icon" className="h-8 w-8 ml-2 inline-block" />
               </div>
               <p className="text-sm text-muted-foreground mt-1">
-                © {new Date().getFullYear()} LearnHub. All rights reserved.
+                © {new Date().getFullYear()} DentalLearnHub India. All rights reserved.
               </p>
             </div>
             <div className="flex space-x-6">
