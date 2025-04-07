@@ -9,6 +9,12 @@ import { Input } from "@/components/ui/input";
 import { BookOpen, Clock, CheckCircle } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { Course, Enrollment } from '@shared/schema';
+
+// Define an enriched enrollment type that includes the course relation
+interface EnrichmentWithCourse extends Enrollment {
+  course: Course;
+}
 
 export default function StudentDashboard() {
   const { user } = useAuth();
@@ -16,13 +22,13 @@ export default function StudentDashboard() {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Fetch student enrollments
-  const { data: enrollments, isLoading: isLoadingEnrollments } = useQuery({
+  const { data: enrollments, isLoading: isLoadingEnrollments } = useQuery<EnrichmentWithCourse[]>({
     queryKey: user ? [`/api/students/${user.id}/enrollments`] : [],
     enabled: !!user,
   });
 
   // Fetch all published courses
-  const { data: courses, isLoading: isLoadingCourses } = useQuery({
+  const { data: courses, isLoading: isLoadingCourses } = useQuery<Course[]>({
     queryKey: ["/api/courses"],
     enabled: !!user,
   });
@@ -60,23 +66,23 @@ export default function StudentDashboard() {
   // Filter courses based on search term
   const filteredCourses = courses
     ? courses.filter(
-        (course) =>
+        (course: Course) =>
           course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           course.category.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : [];
 
   // Get user stats
-  const inProgressCount = enrollments?.filter((e) => !e.completed)?.length || 0;
-  const completedCount = enrollments?.filter((e) => e.completed)?.length || 0;
+  const inProgressCount = enrollments?.filter((e: EnrichmentWithCourse) => !e.completed)?.length || 0;
+  const completedCount = enrollments?.filter((e: EnrichmentWithCourse) => e.completed)?.length || 0;
   
   // Add a placeholder for hours spent - in a real app this would come from the API
   const hoursSpent = enrollments?.length ? Math.round(enrollments.length * 3.5) : 0;
 
   // Create tabs content for courses section
   const allCourses = filteredCourses;
-  const freeCourses = filteredCourses.filter((course) => course.isFree);
-  const premiumCourses = filteredCourses.filter((course) => !course.isFree);
+  const freeCourses = filteredCourses.filter((course: Course) => course.isFree);
+  const premiumCourses = filteredCourses.filter((course: Course) => !course.isFree);
 
   const tabsContent = [
     {
@@ -84,7 +90,7 @@ export default function StudentDashboard() {
       label: "All Courses",
       content: (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {allCourses.map((course) => (
+          {allCourses.map((course: Course) => (
             <CourseCard
               key={course.id}
               course={course}
@@ -104,7 +110,7 @@ export default function StudentDashboard() {
       label: "Free Courses",
       content: (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {freeCourses.map((course) => (
+          {freeCourses.map((course: Course) => (
             <CourseCard
               key={course.id}
               course={course}
@@ -124,7 +130,7 @@ export default function StudentDashboard() {
       label: "Premium Courses",
       content: (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {premiumCourses.map((course) => (
+          {premiumCourses.map((course: Course) => (
             <CourseCard
               key={course.id}
               course={course}
@@ -203,8 +209,8 @@ export default function StudentDashboard() {
           <h2 className="text-xl font-semibold mb-4">Continue Learning</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {enrollments
-              .filter((enrollment) => !enrollment.completed)
-              .map((enrollment) => (
+              .filter((enrollment: EnrichmentWithCourse) => !enrollment.completed)
+              .map((enrollment: EnrichmentWithCourse) => (
                 <CourseProgressCard
                   key={enrollment.id}
                   id={enrollment.course.id}
@@ -217,10 +223,10 @@ export default function StudentDashboard() {
                       (enrollment.completionPercentage / 100) * 12
                     ),
                   }}
-                  thumbnail={enrollment.course.thumbnailUrl}
+                  thumbnail={enrollment.course.thumbnailUrl || ''}
                 />
               ))}
-            {enrollments.filter((enrollment) => !enrollment.completed).length ===
+            {enrollments.filter((enrollment: EnrichmentWithCourse) => !enrollment.completed).length ===
               0 && (
               <div className="col-span-3 text-center py-10">
                 <p className="text-gray-500">

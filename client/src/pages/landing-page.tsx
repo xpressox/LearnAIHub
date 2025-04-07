@@ -438,7 +438,8 @@ export default function LandingPage() {
           <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <div className="text-2xl font-bold">
-                <span className="text-primary">Learn</span><span className="text-emerald-500">Hub</span>
+                <span className="text-primary">Dental</span><span className="text-emerald-500">LearnHub</span>
+                <img src="/dental-icon.svg" alt="Dental Icon" className="h-8 w-8 ml-2 inline-block" />
               </div>
               <p className="text-sm text-muted-foreground mt-1">
                 © {new Date().getFullYear()} LearnHub. All rights reserved.
