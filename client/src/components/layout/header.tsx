@@ -46,8 +46,10 @@ export default function Header({ onMenuClick, activeRole, setActiveRole }: Heade
             </svg>
           </button>
           <div className="flex items-center">
-            <span className="text-primary font-bold text-2xl">Dental<span className="text-emerald-500">LearnHub</span>
-            <img src="/dental-icon.svg" alt="Dental Icon" className="h-6 w-6 ml-1 inline-block" /></span>
+            <div className="flex items-center">
+              <span className="text-primary font-bold text-2xl">Dental<span className="text-emerald-500">LearnHub</span></span>
+              <img src="/dental-icon.svg" alt="Dental Icon" className="h-6 w-6 ml-2" />
+            </div>
           </div>
         </div>
         
