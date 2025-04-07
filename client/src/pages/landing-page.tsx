@@ -38,7 +38,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Transform</span> Your Learning Journey
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E88E5] to-primary">Transform</span> Your Learning Journey
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Join our global community of learners and unlock your potential with expert-led courses, personalized learning paths, and AI-powered study tools.
@@ -72,7 +72,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-px bg-gradient-to-r from-primary/30 to-emerald-400/40 rounded-xl blur-xl"></div>
+              <div className="absolute -inset-px bg-gradient-to-r from-[#1E88E5]/30 to-primary/40 rounded-xl blur-xl"></div>
               <div className="relative bg-background rounded-xl border shadow-xl overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
@@ -338,7 +338,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/5 to-emerald-100/20">
+      <section className="py-20 bg-gradient-to-r from-[#1E88E5]/10 to-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Start Your Learning Journey?</h2>
@@ -367,7 +367,7 @@ export default function LandingPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section id="newsletter" className="py-20 bg-gradient-to-r from-emerald-50/30 to-primary/5">
+      <section id="newsletter" className="py-20 bg-gradient-to-r from-[#1E88E5]/5 to-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
@@ -395,7 +395,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-emerald-50/10 to-muted py-12">
+      <footer className="bg-gradient-to-b from-[#1E88E5]/5 via-primary/5 to-muted py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -438,7 +438,7 @@ export default function LandingPage() {
           <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <div className="text-2xl font-bold">
-                Learn<span className="text-primary">Hub</span>
+                <span className="text-[#1E88E5]">Learn</span><span className="text-primary">Hub</span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">
                 © {new Date().getFullYear()} LearnHub. All rights reserved.

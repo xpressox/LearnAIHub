@@ -160,9 +160,9 @@ export default function StudentDashboard() {
             title="Courses in Progress"
             value={inProgressCount}
             icon={<BookOpen className="h-5 w-5" />}
-            borderColor="border-blue-500"
-            iconBgColor="bg-blue-500 bg-opacity-10"
-            iconColor="text-blue-500"
+            borderColor="border-[#1E88E5]"
+            iconBgColor="bg-[#1E88E5] bg-opacity-10"
+            iconColor="text-[#1E88E5]"
             link={{
               text: "View all courses",
               url: "#",
