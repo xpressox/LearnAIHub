@@ -439,7 +439,13 @@ export default function LandingPage() {
             <div className="mb-4 md:mb-0">
               <div className="text-2xl font-bold">
                 <span className="text-primary">Dental</span><span className="text-emerald-500">LearnHub</span>
-                <img src="/dental-icon.svg" alt="Dental Icon" className="h-8 w-8 ml-2 inline-block" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 50 50" fill="none" className="ml-2 inline-block">
+                  <path d="M25 5C21.5 5 18.3333 8.3333 17 10C15.5 10 13.5 10.5 12.5 12.5C11.5 14.5 11 20 11.5 22.5C12 25 13 30 15 33.5C17 37 19.5 40.5 21.5 41.5C23.5 42.5 28 43 30 41.5C32 40 34.5 37 36.5 33.5C38.5 30 39.5 25 40 22.5C40.5 20 40 14.5 39 12.5C38 10.5 36 10 34.5 10C33.1667 8.3333 30 5 25 5Z" fill="#32CD32"/>
+                  <path d="M25 10C22.5 10 20 12.5 19 14C17.8333 14 16.5 14.5 16 16C15.5 17.5 15 21.5 15.5 23.5C16 25.5 16.5 29 18 31.5C19.5 34 21.5 36.5 23 37C24.5 37.5 27.5 38 29 37C30.5 36 33 34 34.5 31.5C36 29 36.5 25.5 37 23.5C37.5 21.5 37 17.5 36.5 16C36 14.5 34.5 14 33.5 14C32.5 12.5 30 10 25 10Z" fill="white"/>
+                  <path d="M20 20C22 21 25 21.5 30 20" stroke="#32CD32" strokeWidth="1.5" strokeLinecap="round"/>
+                  <path d="M20 25C22 26 25 26.5 30 25" stroke="#32CD32" strokeWidth="1.5" strokeLinecap="round"/>
+                  <path d="M22 30C24 31 26 31.5 28 30" stroke="#32CD32" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
               </div>
               <p className="text-sm text-muted-foreground mt-1">
                 © {new Date().getFullYear()} DentalLearnHub India. All rights reserved.
