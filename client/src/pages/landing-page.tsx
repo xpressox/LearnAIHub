@@ -38,10 +38,10 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Transform</span> Your Dental Education
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Revolutionizing</span> BDS Education
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Join India's premier dental e-learning platform with courses designed specifically for BDS and MDS students. Access expert-led dental courses, clinical case studies, and AI-powered study tools.
+                India's first specialized e-learning startup dedicated to BDS students. Learn directly from young, innovative practitioners who are transforming dental education with technology-enhanced learning and personalized mentorship.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button 
@@ -90,20 +90,20 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">500+</div>
-              <div className="text-sm text-muted-foreground">Expert Instructors</div>
+              <div className="text-4xl font-bold text-primary mb-2">12+</div>
+              <div className="text-sm text-muted-foreground">BDS Specialist Instructors</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">1.2M+</div>
-              <div className="text-sm text-muted-foreground">Students Worldwide</div>
+              <div className="text-4xl font-bold text-primary mb-2">5,000+</div>
+              <div className="text-sm text-muted-foreground">Dental Students</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">2,500+</div>
-              <div className="text-sm text-muted-foreground">Courses Available</div>
+              <div className="text-4xl font-bold text-primary mb-2">45+</div>
+              <div className="text-sm text-muted-foreground">BDS Subject Courses</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">92%</div>
-              <div className="text-sm text-muted-foreground">Student Satisfaction</div>
+              <div className="text-4xl font-bold text-primary mb-2">98%</div>
+              <div className="text-sm text-muted-foreground">Success Rate in Exams</div>
             </div>
           </div>
         </div>
@@ -113,9 +113,9 @@ export default function LandingPage() {
       <section className="py-20 bg-gradient-to-b from-emerald-50/5 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Choose DentalLearnHub?</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose DentalLearnHub for BDS Education?</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              India's premier dental e-learning platform combines cutting-edge technology with expert-led instruction from top dental professionals to enhance your dental education.
+              India's first dedicated BDS e-learning startup founded by young practitioners. We're revolutionizing dental education with specialized content for every BDS year and subject.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -124,9 +124,9 @@ export default function LandingPage() {
                 <div className="bg-primary/10 rounded-full w-12 h-12 flex items-center justify-center mb-6">
                   <Brain className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">AI-Powered Learning</h3>
+                <h3 className="text-xl font-semibold mb-2">BDS-Specific AI Learning</h3>
                 <p className="text-muted-foreground">
-                  Our intelligent system adapts to your learning style, helping you focus on areas that need improvement.
+                  AI-powered system that adapts to your learning style and generates specialized notes for complex dental subjects.
                 </p>
               </CardContent>
             </Card>
@@ -136,9 +136,9 @@ export default function LandingPage() {
                 <div className="bg-primary/10 rounded-full w-12 h-12 flex items-center justify-center mb-6">
                   <Users className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Expert Instructors</h3>
+                <h3 className="text-xl font-semibold mb-2">Top BDS Faculty</h3>
                 <p className="text-muted-foreground">
-                  Learn from industry professionals with real-world experience and proven teaching methods.
+                  Learn from young BDS/MDS specialists with clinical experience from India's top dental colleges and private practices.
                 </p>
               </CardContent>
             </Card>
@@ -198,21 +198,21 @@ export default function LandingPage() {
       <section id="courses" className="py-20 bg-gradient-to-b from-background to-emerald-50/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Explore Our Dental Course Categories</h2>
+            <h2 className="text-3xl font-bold mb-4">Specialized BDS Subject Courses</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover specialized dental courses covering clinical skills, dental sciences, practice management, and continuing dental education for BDS and MDS students in India.
+              Expert-led courses specifically designed for Bachelor of Dental Surgery students, covering core subjects and advanced techniques required for dental practice in India.
             </p>
           </div>
           
-          <Tabs defaultValue="clinical" className="w-full">
+          <Tabs defaultValue="preclinical" className="w-full">
             <TabsList className="grid grid-cols-2 sm:grid-cols-4 w-full mb-8">
-              <TabsTrigger value="clinical">Clinical Skills</TabsTrigger>
-              <TabsTrigger value="sciences">Dental Sciences</TabsTrigger>
-              <TabsTrigger value="management">Practice Management</TabsTrigger>
-              <TabsTrigger value="continuing">Continuing Education</TabsTrigger>
+              <TabsTrigger value="preclinical">Preclinical BDS</TabsTrigger>
+              <TabsTrigger value="clinical">Clinical BDS</TabsTrigger>
+              <TabsTrigger value="specialty">Specialty Skills</TabsTrigger>
+              <TabsTrigger value="entrance">Exam Preparation</TabsTrigger>
             </TabsList>
             
-            {['clinical', 'sciences', 'management', 'continuing'].map((category) => (
+            {['preclinical', 'clinical', 'specialty', 'entrance'].map((category) => (
               <TabsContent key={category} value={category} className="space-y-4">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[1, 2, 3, 4, 5, 6].map((num) => (
@@ -233,34 +233,88 @@ export default function LandingPage() {
                       <div className="p-4">
                         <div className="flex justify-between items-start mb-2">
                           <div className="text-sm font-medium px-2 py-1 rounded-full bg-primary/10 text-primary">
-                            {category === 'clinical' && 'Practical Skills'}
-                            {category === 'sciences' && 'Dental Sciences'}
-                            {category === 'management' && 'Management'}
-                            {category === 'continuing' && 'CE Credits'}
+                            {category === 'preclinical' && '1st & 2nd Year'}
+                            {category === 'clinical' && '3rd & 4th Year'}
+                            {category === 'specialty' && 'Advanced Skills'}
+                            {category === 'entrance' && 'MDS Prep'}
                           </div>
                           <div className="text-sm font-bold">
-                            {num % 2 === 0 ? 'Free' : '₹4,999'}
+                            {num % 2 === 0 ? 'Free' : '₹2,999'}
                           </div>
                         </div>
                         <h3 className="font-semibold text-lg mb-1 line-clamp-1">
-                          {category === 'clinical' && 'Advanced Dental Implant Techniques'}
-                          {category === 'sciences' && 'Oral Pathology Masterclass'}
-                          {category === 'management' && 'Dental Practice Management'}
-                          {category === 'continuing' && 'Latest Updates in Endodontics'}
-                          {' '}
-                          {num}
+                          {category === 'preclinical' && [
+                            'Dental Anatomy Essentials', 
+                            'General Histology', 
+                            'Dental Materials Fundamentals', 
+                            'Oral Physiology', 
+                            'Biochemistry for Dental Students', 
+                            'Dental Embryology'
+                          ][num-1]}
+                          {category === 'clinical' && [
+                            'Operative Dentistry Techniques', 
+                            'Pediatric Dentistry Essentials', 
+                            'Removable Prosthodontics', 
+                            'Fixed Prosthodontics', 
+                            'Oral Surgery Basics', 
+                            'Endodontics Masterclass'
+                          ][num-1]}
+                          {category === 'specialty' && [
+                            'Advanced Implantology', 
+                            'Digital Dentistry & CAD/CAM', 
+                            'Aesthetic Dentistry', 
+                            'Lasers in Dentistry', 
+                            'Oral Medicine & Radiology', 
+                            'Advanced Periodontology'
+                          ][num-1]}
+                          {category === 'entrance' && [
+                            'MDS Entrance Exam Prep', 
+                            'Clinical Case Studies', 
+                            'MCQ Practice Sessions', 
+                            'Rapid Revision Series', 
+                            'Previous Year Papers Analysis', 
+                            'Interview Preparation'
+                          ][num-1]}
                         </h3>
                         <div className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                          {category === 'clinical' && 'Master the latest dental implant techniques with hands-on training and live case studies from top Indian specialists.'}
-                          {category === 'sciences' && 'Comprehensive study of oral pathology with focus on conditions prevalent in the Indian subcontinent.'}
-                          {category === 'management' && 'Learn to run a successful dental practice in India, covering patient acquisition, staff management, and regulatory compliance.'}
-                          {category === 'continuing' && 'Stay updated with the latest advancements in endodontic treatments and earn required CE credits from DCI.'}
+                          {category === 'preclinical' && [
+                            'Comprehensive study of tooth morphology and development with 3D models and interactive diagrams.',
+                            'Detailed exploration of tissue structures with focus on the oral cavity and dental relevance.',
+                            'Complete overview of materials used in dentistry with hands-on demonstrations and practice guides.',
+                            'In-depth study of oral cavity functions, salivary glands, mastication, and deglutition mechanisms.',
+                            'Biomolecular concepts relevant to dental practice with clinical correlations and case studies.',
+                            'Detailed study of craniofacial and dental structure development from embryonic stage to full formation.'
+                          ][num-1]}
+                          {category === 'clinical' && [
+                            'Practical techniques for dental restorations with focus on minimally invasive approaches and materials.',
+                            'Specialized dental care for children including behavior management and preventive treatments.',
+                            'Complete denture fabrication process from impression to delivery with troubleshooting guides.',
+                            'Crown and bridge procedures including preparation, impression, temporary restoration, and cementation.',
+                            'Step-by-step guide to extraction techniques, minor surgical procedures, and post-operative care.',
+                            'Root canal treatment protocols from diagnosis to obturation with latest techniques and case demonstrations.'
+                          ][num-1]}
+                          {category === 'specialty' && [
+                            'Advanced implant placement and restoration techniques with focus on immediate loading protocols.',
+                            'Intraoral scanning, CAD design, and milling procedures for precision restorations in modern practice.',
+                            'Comprehensive smile design principles with veneer preparation, composite bonding, and whitening procedures.',
+                            'Laser applications in soft and hard tissue procedures with safety protocols and clinical techniques.',
+                            'Advanced imaging interpretation skills and diagnosis of oral lesions with management protocols.',
+                            'Surgical and non-surgical management of periodontal diseases with focus on regenerative procedures.'
+                          ][num-1]}
+                          {category === 'entrance' && [
+                            'Structured preparation plan for NEET MDS and other entrance exams with subject-wise strategy.',
+                            'Analysis of complex clinical scenarios with diagnostic approach and treatment planning discussions.',
+                            'Timed practice sessions with thousands of MCQs covering all BDS subjects with detailed explanations.',
+                            'High-yield topic summaries and memory techniques for quick revision before entrance exams.',
+                            'Detailed solutions and topic analysis of previous year entrance exam papers with expert insights.',
+                            'Guidance for MDS interview preparation with mock sessions and frequently asked questions.'
+                          ][num-1]}
                         </div>
                         <div className="flex items-center text-sm">
                           <PlayCircle className="h-4 w-4 text-muted-foreground mr-1" />
-                          <span className="text-muted-foreground">{10 + num} lessons</span>
+                          <span className="text-muted-foreground">{8 + num} lessons</span>
                           <span className="mx-2 text-muted-foreground">•</span>
-                          <span className="text-muted-foreground">{4 + (num * 2)} hours</span>
+                          <span className="text-muted-foreground">{4 + num} hours</span>
                         </div>
                       </div>
                     </div>
@@ -268,7 +322,7 @@ export default function LandingPage() {
                 </div>
                 <div className="text-center mt-8">
                   <Button variant="outline" className="px-6" onClick={() => navigate("/auth")}>
-                    View All {category.charAt(0).toUpperCase() + category.slice(1)} Courses
+                    View All {category.charAt(0).toUpperCase() + category.slice(1)} BDS Courses
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
@@ -278,6 +332,113 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Featured Instructors Section */}
+      <section className="py-20 bg-gradient-to-t from-emerald-50/20 to-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Meet Our Star BDS Instructors</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Learn directly from young, innovative BDS specialists who are transforming dental education in India
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Instructor 1 */}
+            <div className="flex flex-col items-center bg-background rounded-lg p-6 border transition-all hover:shadow-lg hover:border-primary">
+              <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-primary">
+                <img 
+                  src="https://randomuser.me/api/portraits/men/32.jpg" 
+                  alt="Dr. Vikram Singh" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-1">Dr. Vikram Singh</h3>
+              <p className="text-primary font-medium mb-3">Oral Surgery Specialist</p>
+              <p className="text-center text-muted-foreground mb-4">
+                BDS, MDS (Oral & Maxillofacial Surgery) from King George's Medical University. 
+                Specializes in advanced dental implantology and surgical protocols.
+              </p>
+              <div className="flex space-x-4 text-muted-foreground">
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">12</span>
+                  <span className="text-xs">Courses</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">4,800+</span>
+                  <span className="text-xs">Students</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">4.9/5</span>
+                  <span className="text-xs">Rating</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Instructor 2 */}
+            <div className="flex flex-col items-center bg-background rounded-lg p-6 border transition-all hover:shadow-lg hover:border-primary">
+              <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-primary">
+                <img 
+                  src="https://randomuser.me/api/portraits/women/44.jpg" 
+                  alt="Dr. Anika Patel" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-1">Dr. Anika Patel</h3>
+              <p className="text-primary font-medium mb-3">Conservative Dentistry Expert</p>
+              <p className="text-center text-muted-foreground mb-4">
+                BDS, MDS (Conservative Dentistry) from Manipal College of Dental Sciences.
+                Known for innovative approaches to endodontic treatments and restorations.
+              </p>
+              <div className="flex space-x-4 text-muted-foreground">
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">9</span>
+                  <span className="text-xs">Courses</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">3,500+</span>
+                  <span className="text-xs">Students</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">4.8/5</span>
+                  <span className="text-xs">Rating</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Instructor 3 */}
+            <div className="flex flex-col items-center bg-background rounded-lg p-6 border transition-all hover:shadow-lg hover:border-primary">
+              <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-primary">
+                <img 
+                  src="https://randomuser.me/api/portraits/men/76.jpg" 
+                  alt="Dr. Rajat Verma" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-1">Dr. Rajat Verma</h3>
+              <p className="text-primary font-medium mb-3">Prosthodontics Specialist</p>
+              <p className="text-center text-muted-foreground mb-4">
+                BDS, MDS (Prosthodontics) from Nair Hospital Dental College. 
+                Pioneering digital dentistry and CAD/CAM techniques for Indian dental practices.
+              </p>
+              <div className="flex space-x-4 text-muted-foreground">
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">14</span>
+                  <span className="text-xs">Courses</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">5,200+</span>
+                  <span className="text-xs">Students</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="font-bold text-foreground">4.9/5</span>
+                  <span className="text-xs">Rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Testimonials Section */}
       <section className="py-20 bg-gradient-to-t from-emerald-50/10 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
