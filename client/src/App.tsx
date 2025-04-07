@@ -10,6 +10,8 @@ import AuthPage from "@/pages/auth-page";
 import StudentDashboard from "@/pages/student-dashboard";
 import TeacherDashboard from "@/pages/teacher-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
+import SettingsPage from "@/pages/settings-page";
+import AdminSettingsPage from "@/pages/admin-settings";
 import { UserRole } from "@shared/schema";
 
 function App() {
@@ -60,6 +62,8 @@ function App() {
               <ProtectedRoute path="/" component={StudentDashboard} />
               <ProtectedRoute path="/teacher" component={TeacherDashboard} />
               <ProtectedRoute path="/admin" component={AdminDashboard} />
+              <ProtectedRoute path="/settings" component={SettingsPage} />
+              <ProtectedRoute path="/admin-settings" component={AdminSettingsPage} />
               <Route component={NotFound} />
             </Switch>
           </main>

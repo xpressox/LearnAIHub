@@ -44,9 +44,9 @@ export default function Sidebar({ isOpen, activeRole, setActiveRole, onClose }: 
           <div className="text-xs uppercase tracking-wider text-gray-500 font-semibold px-3 mb-2">Main</div>
           
           <Link href="/">
-            <a 
+            <button 
               className={cn(
-                "flex items-center px-3 py-2 rounded-md", 
+                "flex items-center px-3 py-2 rounded-md w-full text-left", 
                 activeRole === UserRole.STUDENT && location === '/' 
                   ? "bg-primary text-white" 
                   : "text-gray-600 hover:bg-gray-100"
@@ -59,14 +59,14 @@ export default function Sidebar({ isOpen, activeRole, setActiveRole, onClose }: 
                 <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
               </svg>
               <span>Student Dashboard</span>
-            </a>
+            </button>
           </Link>
           
           {(user.role === UserRole.TEACHER || user.role === UserRole.ADMIN) && (
             <Link href="/teacher">
-              <a 
+              <button 
                 className={cn(
-                  "flex items-center px-3 py-2 rounded-md", 
+                  "flex items-center px-3 py-2 rounded-md w-full text-left", 
                   activeRole === UserRole.TEACHER && location === '/teacher' 
                     ? "bg-primary text-white" 
                     : "text-gray-600 hover:bg-gray-100"
@@ -80,15 +80,15 @@ export default function Sidebar({ isOpen, activeRole, setActiveRole, onClose }: 
                   <path d="m7 21 5-5 5 5"/>
                 </svg>
                 <span>Teacher Dashboard</span>
-              </a>
+              </button>
             </Link>
           )}
           
           {user.role === UserRole.ADMIN && (
             <Link href="/admin">
-              <a 
+              <button
                 className={cn(
-                  "flex items-center px-3 py-2 rounded-md", 
+                  "flex items-center px-3 py-2 rounded-md w-full text-left", 
                   activeRole === UserRole.ADMIN && location === '/admin' 
                     ? "bg-primary text-white" 
                     : "text-gray-600 hover:bg-gray-100"
@@ -101,40 +101,44 @@ export default function Sidebar({ isOpen, activeRole, setActiveRole, onClose }: 
                   <path d="m9 12 2 2 4-4"/>
                 </svg>
                 <span>Admin Dashboard</span>
-              </a>
+              </button>
             </Link>
           )}
           
           <div className="text-xs uppercase tracking-wider text-gray-500 font-semibold px-3 mt-6 mb-2">Account</div>
           
-          <Link href="/profile">
-            <a className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-3 lucide lucide-user-circle">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="10" r="3"/>
-                <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
-              </svg>
-              <span>Profile</span>
-            </a>
-          </Link>
-          
           <Link href="/settings">
-            <a className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">
+            <button className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 w-full text-left">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-3 lucide lucide-settings">
                 <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
                 <circle cx="12" cy="12" r="3"/>
               </svg>
-              <span>Settings</span>
-            </a>
+              <span>User Settings</span>
+            </button>
           </Link>
           
-          <a 
-            href="#" 
-            className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLogout();
-            }}
+          {user.role === UserRole.ADMIN && (
+            <Link href="/admin-settings">
+              <button className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 w-full text-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-3 lucide lucide-sliders-horizontal">
+                  <line x1="21" y1="4" x2="14" y2="4"/>
+                  <line x1="10" y1="4" x2="3" y2="4"/>
+                  <line x1="21" y1="12" x2="12" y2="12"/>
+                  <line x1="8" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="20" x2="16" y2="20"/>
+                  <line x1="12" y1="20" x2="3" y2="20"/>
+                  <line x1="14" y1="2" x2="14" y2="6"/>
+                  <line x1="8" y1="10" x2="8" y2="14"/>
+                  <line x1="16" y1="18" x2="16" y2="22"/>
+                </svg>
+                <span>Admin Settings</span>
+              </button>
+            </Link>
+          )}
+          
+          <button 
+            className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 w-full text-left"
+            onClick={handleLogout}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-3 lucide lucide-log-out">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
@@ -142,7 +146,7 @@ export default function Sidebar({ isOpen, activeRole, setActiveRole, onClose }: 
               <line x1="21" y1="12" x2="9" y2="12"/>
             </svg>
             <span>Logout</span>
-          </a>
+          </button>
         </nav>
       </div>
     </aside>
