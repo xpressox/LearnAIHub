@@ -65,9 +65,9 @@ export default function TeacherDashboard() {
             title="Active Courses"
             value={analytics?.publishedCourses || 0}
             icon={<BookOpen className="h-5 w-5" />}
-            borderColor="border-[#1E88E5]"
-            iconBgColor="bg-[#1E88E5] bg-opacity-10"
-            iconColor="text-[#1E88E5]"
+            borderColor="border-primary"
+            iconBgColor="bg-primary bg-opacity-10"
+            iconColor="text-primary"
             trend={{
               value: `${analytics?.totalCourses - (analytics?.publishedCourses || 0)} in draft`,
               isPositive: true,
@@ -141,7 +141,7 @@ export default function TeacherDashboard() {
             onClick={() => setUploadContentModalOpen(true)}
             className="bg-white rounded-lg shadow p-5 flex items-center hover:bg-gray-50 transition"
           >
-            <div className="bg-[#1E88E5] bg-opacity-10 p-3 rounded-full mr-4">
+            <div className="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -152,7 +152,7 @@ export default function TeacherDashboard() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-[#1E88E5]"
+                className="text-primary"
               >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <polyline points="17 8 12 3 7 8" />

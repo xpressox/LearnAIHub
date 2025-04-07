@@ -46,7 +46,7 @@ export default function Header({ onMenuClick, activeRole, setActiveRole }: Heade
             </svg>
           </button>
           <div className="flex items-center">
-            <span className="text-primary font-bold text-2xl">Learn<span className="text-accent">Hub</span></span>
+            <span className="text-primary font-bold text-2xl">Learn<span className="text-emerald-500">Hub</span></span>
           </div>
         </div>
         

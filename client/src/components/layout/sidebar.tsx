@@ -36,7 +36,7 @@ export default function Sidebar({ isOpen, activeRole, setActiveRole, onClose }: 
       <div className="h-full flex flex-col">
         <div className="p-4 border-b">
           <div className="text-center md:hidden">
-            <span className="text-primary font-bold text-xl">Learn<span className="text-accent">Hub</span></span>
+            <span className="text-primary font-bold text-xl">Learn<span className="text-emerald-500">Hub</span></span>
           </div>
         </div>
         
