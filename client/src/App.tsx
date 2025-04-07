@@ -13,6 +13,7 @@ import AdminDashboard from "@/pages/admin-dashboard";
 import SettingsPage from "@/pages/settings-page";
 import AdminSettingsPage from "@/pages/admin-settings";
 import LandingPage from "@/pages/landing-page";
+import ProfilePage from "@/pages/profile-page";
 import { UserRole } from "@shared/schema";
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
               <ProtectedRoute path="/admin" component={AdminDashboard} />
               <ProtectedRoute path="/settings" component={SettingsPage} />
               <ProtectedRoute path="/admin-settings" component={AdminSettingsPage} />
+              <ProtectedRoute path="/profile" component={ProfilePage} />
               <Route component={NotFound} />
             </Switch>
           </main>

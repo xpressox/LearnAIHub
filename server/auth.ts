@@ -33,28 +33,63 @@ async function comparePasswords(supplied: string, stored: string) {
   return timingSafeEqual(hashedBuf, suppliedBuf);
 }
 
-// Create default admin user if it doesn't exist
-export async function ensureAdminUser() {
+// Create default users if they don't exist
+export async function ensureDefaultUsers() {
   try {
+    // Check and create admin user
     const adminUser = await storage.getUserByUsername('admin');
     if (!adminUser) {
       console.log('Creating default admin user...');
       await storage.createUser({
         username: 'admin',
-        email: 'admin@learnhub.com',
+        email: 'admin@dentallearnhub.com',
         password: await hashPassword('admin123'),
         firstName: 'Admin',
         lastName: 'User',
         role: UserRole.ADMIN,
         bio: 'Platform administrator',
-        profilePicUrl: 'https://ui-avatars.com/api/?name=Admin+User&background=3B82F6&color=fff'
+        profilePicUrl: 'https://ui-avatars.com/api/?name=Admin+User&background=32CD32&color=fff'
       });
       console.log('Default admin user created successfully.');
     } else {
       console.log('Admin user already exists.');
     }
+    
+    // Check and create teacher user
+    const teacherUser = await storage.getUserByUsername('teacher');
+    if (!teacherUser) {
+      console.log('Creating default teacher user...');
+      await storage.createUser({
+        username: 'teacher',
+        email: 'teacher@dentallearnhub.com',
+        password: await hashPassword('teacher123'),
+        firstName: 'Dr. Vikram',
+        lastName: 'Singh',
+        role: UserRole.TEACHER,
+        bio: 'BDS, MDS (Oral & Maxillofacial Surgery) from King George\'s Medical University',
+        profilePicUrl: 'https://ui-avatars.com/api/?name=Vikram+Singh&background=32CD32&color=fff'
+      });
+      console.log('Default teacher user created successfully.');
+    }
+    
+    // Check and create student user
+    const studentUser = await storage.getUserByUsername('student');
+    if (!studentUser) {
+      console.log('Creating default student user...');
+      await storage.createUser({
+        username: 'student',
+        email: 'student@dentallearnhub.com',
+        password: await hashPassword('student123'),
+        firstName: 'Rahul',
+        lastName: 'Sharma',
+        role: UserRole.STUDENT,
+        bio: 'BDS student at Manipal College of Dental Sciences',
+        profilePicUrl: 'https://ui-avatars.com/api/?name=Rahul+Sharma&background=32CD32&color=fff'
+      });
+      console.log('Default student user created successfully.');
+    }
   } catch (error) {
-    console.error('Error ensuring admin user:', error);
+    console.error('Error ensuring default users:', error);
   }
 }
 
@@ -87,8 +122,8 @@ export function setupAuth(app: Express) {
   app.use(passport.initialize());
   app.use(passport.session());
   
-  // Ensure admin user exists
-  ensureAdminUser();
+  // Ensure default users exist (admin, teacher, student)
+  ensureDefaultUsers();
 
   passport.use(
     new LocalStrategy(async (username, password, done) => {

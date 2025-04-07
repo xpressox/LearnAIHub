@@ -79,7 +79,7 @@ export default function Header({ onMenuClick, activeRole, setActiveRole }: Heade
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-2 text-gray-700 focus:outline-none">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} />
+                    <AvatarImage src={user.profilePicUrl || undefined} alt={`${user.firstName} ${user.lastName}`} />
                     <AvatarFallback>{getInitials(user.firstName, user.lastName)}</AvatarFallback>
                   </Avatar>
                   <span className="font-medium">{`${user.firstName} ${user.lastName}`}</span>
@@ -106,7 +106,7 @@ export default function Header({ onMenuClick, activeRole, setActiveRole }: Heade
               {activeRole.charAt(0).toUpperCase() + activeRole.slice(1)} Dashboard
             </span>
             <Avatar className="h-8 w-8">
-              <AvatarImage src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} />
+              <AvatarImage src={user.profilePicUrl || undefined} alt={`${user.firstName} ${user.lastName}`} />
               <AvatarFallback>{getInitials(user.firstName, user.lastName)}</AvatarFallback>
             </Avatar>
           </div>

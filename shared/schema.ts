@@ -39,13 +39,14 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 // Course category
 export const CourseCategory = {
-  PROGRAMMING: 'Programming',
-  DESIGN: 'Design',
-  DATA_SCIENCE: 'Data Science',
-  BUSINESS: 'Business',
-  MARKETING: 'Marketing',
-  AI_ML: 'AI & Machine Learning',
-  CRYPTOCURRENCY: 'Cryptocurrency'
+  PRECLINICAL: 'Preclinical BDS',
+  CLINICAL: 'Clinical BDS',
+  SPECIALTY: 'Specialty Skills',
+  ENTRANCE_EXAM: 'Entrance Exam Prep',
+  DENTAL_MATERIALS: 'Dental Materials',
+  ORAL_SURGERY: 'Oral Surgery',
+  PROSTHODONTICS: 'Prosthodontics',
+  PEDODONTICS: 'Pedodontics'
 } as const;
 
 export type CourseCategoryType = typeof CourseCategory[keyof typeof CourseCategory];
