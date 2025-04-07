@@ -32,13 +32,13 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-background pt-16 pb-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/20 via-emerald-100/15 to-background pt-16 pb-20">
         <div className="absolute inset-0 bg-[url('/client/public/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-violet-500">Transform</span> Your Learning Journey
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Transform</span> Your Learning Journey
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Join our global community of learners and unlock your potential with expert-led courses, personalized learning paths, and AI-powered study tools.
@@ -72,7 +72,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-px bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-xl"></div>
+              <div className="absolute -inset-px bg-gradient-to-r from-primary/30 to-emerald-400/40 rounded-xl blur-xl"></div>
               <div className="relative bg-background rounded-xl border shadow-xl overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
@@ -86,7 +86,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-gradient-to-b from-emerald-50/20 to-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="text-center">
@@ -110,7 +110,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/5 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Why Learn with LearnHub?</h2>
@@ -195,7 +195,7 @@ export default function LandingPage() {
       </section>
 
       {/* Course Categories Section */}
-      <section id="courses" className="py-20 bg-muted/30">
+      <section id="courses" className="py-20 bg-gradient-to-b from-background to-emerald-50/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Explore Our Course Categories</h2>
@@ -279,7 +279,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-t from-emerald-50/10 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">What Our Students Say</h2>
@@ -338,7 +338,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-gradient-to-r from-primary/5 to-emerald-100/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Start Your Learning Journey?</h2>
@@ -367,7 +367,7 @@ export default function LandingPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section id="newsletter" className="py-20 bg-muted/30">
+      <section id="newsletter" className="py-20 bg-gradient-to-r from-emerald-50/30 to-primary/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
@@ -395,7 +395,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-muted py-12">
+      <footer className="bg-gradient-to-b from-emerald-50/10 to-muted py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>

@@ -160,9 +160,9 @@ export default function StudentDashboard() {
             title="Courses in Progress"
             value={inProgressCount}
             icon={<BookOpen className="h-5 w-5" />}
-            borderColor="border-accent"
-            iconBgColor="bg-accent bg-opacity-10"
-            iconColor="text-accent"
+            borderColor="border-blue-500"
+            iconBgColor="bg-blue-500 bg-opacity-10"
+            iconColor="text-blue-500"
             link={{
               text: "View all courses",
               url: "#",
@@ -173,9 +173,9 @@ export default function StudentDashboard() {
             title="Courses Completed"
             value={completedCount}
             icon={<CheckCircle className="h-5 w-5" />}
-            borderColor="border-success"
-            iconBgColor="bg-success bg-opacity-10"
-            iconColor="text-success"
+            borderColor="border-emerald-500"
+            iconBgColor="bg-emerald-500 bg-opacity-10"
+            iconColor="text-emerald-500"
             link={{
               text: "View certificates",
               url: "#",
