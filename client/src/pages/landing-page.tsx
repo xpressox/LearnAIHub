@@ -439,7 +439,7 @@ export default function LandingPage() {
             <div className="mb-4 md:mb-0">
               <div className="text-2xl font-bold">
                 <span className="text-primary">Dental</span><span className="text-emerald-500">LearnHub</span>
-                <img src="/src/assets/dental-icon.svg" alt="Dental Icon" className="h-8 w-8 ml-2 inline-block" />
+                <img src="/dental-icon.svg" alt="Dental Icon" className="h-8 w-8 ml-2 inline-block" />
               </div>
               <p className="text-sm text-muted-foreground mt-1">
                 © {new Date().getFullYear()} DentalLearnHub India. All rights reserved.
